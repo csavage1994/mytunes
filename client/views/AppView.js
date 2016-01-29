@@ -12,9 +12,17 @@ var AppView = Backbone.View.extend({
     }, this);
 
      this.model.get('songQueue').on('add', function(){
-      console.log("herehere");
       this.songQueueView.render();
     }, this);
+
+     this.model.get('songQueue').on('remove', function(){
+      this.songQueueView.render();
+    }, this);
+
+     this.model.get("library").on("play", function(){
+      this.libraryView.render();
+     }, this);
+
   },
 
   render: function(){
